@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="An independent, searchable guide to 26 underrated Google sites, apps and search tricks.">
+<meta property="og:title" content="Google, Page Two">
+<meta property="og:description" content="An independent, searchable guide to 26 underrated Google sites, apps and search tricks.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://xallace.github.io/google-page-two/">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='4' fill='%23A3175B'/%3E%3Ctext x='16' y='25' font-family='Arial Black,Arial,sans-serif' font-weight='900' font-size='24' text-anchor='middle' fill='%23FFF6FA'%3E2%3C/text%3E%3C/svg%3E">
+<title>Google, Page Two</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=IBM+Plex+Mono:wght@400;500&family=Newsreader:ital,opsz,wght@0,6..72,400..600;1,6..72,400..600&display=swap">
+<style>
+/* Layout: "page two of the results" — pitch and search beside an oversized widening 2, then each category as a sticky rail beside single-column tool rows */
+:root{
+  --paper:#F6F2F5;
+  --field:#FFFCFE;
+  --ink:#1F1520;
+  --muted:#6C5E6A;
+  --line:#E3D8E0;
+  --tint:#EEE3EA;
+  --accent:#A3175B;
+  --mark:#F5CDE0;
+  --f-display:"Archivo","Arial Narrow","Helvetica Neue",Arial,sans-serif;
+  --f-body:"Newsreader",Georgia,"Times New Roman",serif;
+  --f-mono:"IBM Plex Mono",ui-monospace,"Cascadia Mono",Consolas,monospace;
+  --s-xs:.8125rem;
+  --s-sm:.9375rem;
+  --s-md:1.125rem;
+  --s-lg:1.375rem;
+  --s-xl:1.875rem;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --paper:#141014;--field:#1C161C;--ink:#F1E9F0;--muted:#A99AA7;--line:#342A33;--tint:#241B23;--accent:#F06AA2;--mark:#5C2243;
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#141014;--field:#1C161C;--ink:#F1E9F0;--muted:#A99AA7;--line:#342A33;--tint:#241B23;--accent:#F06AA2;--mark:#5C2243;
+  color-scheme:dark;
+}
+
+*,*::before,*::after{box-sizing:border-box}
+body{background:var(--paper);color:var(--ink);font-family:var(--f-body);font-size:var(--s-md);line-height:1.55}
+::selection{background:var(--mark)}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+.wrap{max-width:78rem;margin-inline:auto;padding-inline:clamp(1rem,4vw,3rem)}
+
+/* Top bar */
+.bar{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:baseline;gap:.4rem 1.5rem;padding-block:1.25rem;border-bottom:2px solid var(--ink)}
+.brand{font-family:var(--f-display);font-weight:800;font-stretch:75%;font-size:var(--s-lg);text-transform:uppercase;letter-spacing:.01em}
+.bar-meta{font-family:var(--f-mono);font-size:var(--s-xs);color:var(--muted)}
+
+/* Hero */
+.hero{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);align-items:end;gap:2rem;padding-block:clamp(2.5rem,6vw,4.5rem) 1.5rem}
+.pitch{min-width:0}
+.eyebrow{margin:0;font-family:var(--f-mono);font-size:var(--s-xs);text-transform:uppercase;letter-spacing:.09em;color:var(--accent)}
+h1{margin:.75rem 0 1.25rem;font-family:var(--f-display);font-weight:800;font-stretch:72%;font-size:clamp(2.6rem,6vw,4.75rem);line-height:.95;letter-spacing:-.01em;text-wrap:balance;max-width:16ch}
+.lede{margin:0;max-width:36rem;font-size:var(--s-lg);line-height:1.45;color:var(--muted)}
+.lede strong{color:var(--ink);font-weight:600}
+
+.two-wrap{display:flex;flex-direction:column;align-items:flex-end;min-width:0}
+.two{font-family:var(--f-display);font-weight:900;font-stretch:125%;font-size:clamp(8rem,26vw,24rem);line-height:.78;letter-spacing:-.04em;color:var(--accent);animation:widen 1.5s cubic-bezier(.2,.75,.1,1) .2s both}
+.two-cap{margin-top:1rem;font-family:var(--f-mono);font-size:var(--s-xs);text-transform:uppercase;letter-spacing:.09em;color:var(--muted)}
+@keyframes widen{from{font-stretch:62%}to{font-stretch:125%}}
+
+/* Search */
+.search{display:flex;align-items:center;gap:.75rem;max-width:40rem;margin-top:2rem;padding:.25rem .5rem .25rem 1rem;border:2px solid var(--ink);background:var(--field)}
+.search:focus-within{border-color:var(--accent);box-shadow:0 0 0 4px var(--mark)}
+.search svg{flex:none;width:1.25rem;height:1.25rem;fill:none;stroke:var(--muted);stroke-width:2}
+.search input{flex:1;min-width:0;padding-block:.8rem;border:0;background:transparent;color:var(--ink);font-family:var(--f-mono);font-size:1rem;outline:none}
+.search input::placeholder{color:var(--muted)}
+kbd{flex:none;padding:.1rem .5rem;border:1px solid var(--line);font-family:var(--f-mono);font-size:var(--s-xs);color:var(--muted)}
+@media (hover:none){kbd{display:none}}
+.meta{margin:.75rem 0 0;font-family:var(--f-mono);font-size:var(--s-xs);color:var(--muted);font-variant-numeric:tabular-nums}
+
+/* Category filters */
+.filters{display:flex;flex-wrap:wrap;gap:.5rem;padding-block:1.5rem 2.5rem}
+.chip{display:inline-flex;align-items:baseline;gap:.55rem;padding:.5rem .85rem;border:1.5px solid var(--ink);border-radius:2px;background:transparent;color:var(--ink);font-family:var(--f-mono);font-size:var(--s-xs);cursor:pointer}
+.chip .n{color:var(--muted);font-variant-numeric:tabular-nums}
+.chip:hover{background:var(--tint)}
+.chip.zero{opacity:.45}
+.chip[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+.chip[aria-pressed="true"] .n{color:var(--paper);opacity:.7}
+
+/* Groups */
+.group{display:grid;grid-template-columns:minmax(0,15rem) minmax(0,1fr);gap:1.25rem 3rem;padding-block:2.5rem;border-top:2px solid var(--ink);scroll-margin-top:1rem}
+.rail{align-self:start;position:sticky;top:calc(env(safe-area-inset-top,0px) + 1.5rem)}
+.rail h2{margin:0;font-family:var(--f-display);font-weight:800;font-stretch:80%;font-size:var(--s-xl);line-height:1.05;text-wrap:balance}
+.count{margin:.65rem 0 0;font-family:var(--f-mono);font-size:var(--s-xs);text-transform:uppercase;letter-spacing:.09em;color:var(--accent)}
+.blurb{margin:.5rem 0 0;font-size:var(--s-sm);line-height:1.45;color:var(--muted)}
+
+.rows{display:grid;min-width:0}
+.tool{display:grid;grid-template-columns:minmax(0,13rem) minmax(0,1fr);gap:.6rem 2rem;padding-block:1.35rem;border-top:1px solid var(--line)}
+.tool:first-child{padding-top:0;border-top:0}
+.tool h3{margin:0;font-family:var(--f-display);font-weight:700;font-stretch:88%;font-size:var(--s-lg);line-height:1.15}
+.kind{display:block;margin-top:.4rem;font-family:var(--f-mono);font-size:.75rem;text-transform:uppercase;letter-spacing:.07em;color:var(--muted)}
+.tool-body{display:grid;grid-template-columns:minmax(0,1fr);justify-items:start;gap:.7rem;min-width:0}
+.tool-body p{margin:0;max-width:62ch}
+.go{font-family:var(--f-mono);font-size:var(--s-sm);text-decoration:underline;text-decoration-color:var(--accent);text-decoration-thickness:1.5px;text-underline-offset:.22em;overflow-wrap:anywhere}
+.go:hover{color:var(--accent)}
+.snippet{display:flex;max-width:100%;border:1px solid var(--line);background:var(--field)}
+.snippet code{min-width:0;overflow-x:auto;padding:.45rem .75rem;font-family:var(--f-mono);font-size:var(--s-sm);white-space:pre}
+.snippet button{flex:none;padding-inline:.8rem;border:0;border-left:1px solid var(--line);background:transparent;color:var(--muted);font-family:var(--f-mono);font-size:var(--s-xs);cursor:pointer}
+.snippet button:hover{background:var(--tint);color:var(--accent)}
+mark{background:var(--mark);color:inherit;padding-inline:.05em}
+
+.empty{padding-block:3rem;border-top:2px solid var(--ink)}
+.empty p{margin:0;font-size:var(--s-lg)}
+.linkish{padding:0;border:0;background:none;color:inherit;font:inherit;text-decoration:underline;text-decoration-color:var(--accent);text-underline-offset:.2em;cursor:pointer}
+.linkish:hover{color:var(--accent)}
+
+/* Footer */
+.foot{display:flex;flex-wrap:wrap;justify-content:space-between;gap:1rem 3rem;padding-block:2rem 3rem;border-top:2px solid var(--ink);font-size:var(--s-sm);color:var(--muted)}
+.foot p{margin:0;max-width:46ch}
+.foot-links{display:flex;flex-direction:column;gap:.5rem}
+.foot a{font-family:var(--f-mono);font-size:var(--s-xs);text-transform:uppercase;letter-spacing:.09em;color:var(--ink)}
+
+@media (max-width:1000px){
+  .group{grid-template-columns:minmax(0,1fr);gap:1.5rem}
+  .rail{position:static}
+}
+@media (max-width:720px){
+  .hero{grid-template-columns:minmax(0,1fr);gap:1rem}
+  .two-wrap{order:-1;flex-direction:row;align-items:flex-end;gap:1rem}
+  .two{font-size:clamp(6.5rem,34vw,10rem)}
+  .two-cap{margin:0 0 .4rem}
+  .tool{grid-template-columns:minmax(0,1fr);gap:.6rem}
+}
+@media (prefers-reduced-motion:reduce){
+  .two{animation:none}
+}
+
+/* Standalone reset (the artifact host supplies these) */
+html{-webkit-text-size-adjust:100%}
+body{margin:0}
+[hidden]{display:none!important}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="bar">
+    <span class="brand">Page Two</span>
+    <span class="bar-meta">An independent guide · compiled 6 Oct 2026</span>
+  </header>
+
+  <section class="hero" id="top">
+    <div class="pitch">
+      <p class="eyebrow">26 Google tools past the first page</p>
+      <h1>The useful half of Google lives on page two.</h1>
+      <p class="lede">Free sites, apps and settings that solve real problems, from <strong>searching inside scanned PDFs</strong> to <strong>scrubbing through forty years of satellite photos</strong>. Search the list, filter by kind, and open any of them directly.</p>
+      <div class="search">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"></circle><path d="M15.5 15.5 21 21"></path></svg>
+        <label for="q" class="sr-only">Search the tools</label>
+        <input id="q" type="search" placeholder="Try pdf, satellite or offline" autocomplete="off" spellcheck="false">
+        <kbd title="Press / to search">/</kbd>
+      </div>
+      <p class="meta" id="meta" aria-live="polite">26 results</p>
+    </div>
+    <div class="two-wrap" aria-hidden="true">
+      <span class="two">2</span>
+      <span class="two-cap">Results 11–20</span>
+    </div>
+  </section>
+
+  <nav class="filters" id="chips" aria-label="Filter by category"></nav>
+
+  <div id="list"></div>
+
+  <div class="empty" id="empty" hidden>
+    <p>Nothing matches <strong id="emptyq"></strong>. Try a shorter word, or <button type="button" class="linkish" id="reset">show all 26 tools</button>.</p>
+  </div>
+
+  <footer class="foot">
+    <p>Compiled 6 October 2026. Google renames and retires products often, so a link here may have moved or closed since.</p>
+    <p>An independent list, not affiliated with or endorsed by Google. Product names are trademarks of Google LLC.</p>
+    <nav class="foot-links" aria-label="Page links">
+      <a href="#top">Back to top ↑</a>
+      <a href="https://github.com/xallace/google-page-two" target="_blank" rel="noopener">Source on GitHub ↗</a>
+      <a href="https://xallace.github.io/" target="_blank" rel="noopener">More by @xallace ↗</a>
+    </nav>
+  </footer>
+</div>
+
+<script>
+const CATS = [
+  {id:'research', name:'Research & reference', short:'Research', blurb:'For digging into papers, patents, datasets and claims.'},
+  {id:'maps', name:'Maps & Earth', short:'Maps & Earth', blurb:'Satellite history and flexible travel search.'},
+  {id:'workspace', name:'Workspace power features', short:'Workspace', blurb:'Things already inside Drive, Sheets, Gmail and your Google account.'},
+  {id:'tools', name:'Small tools', short:'Small tools', blurb:'Single-purpose utilities that do one job well.'},
+  {id:'mobile', name:'Mobile', short:'Mobile', blurb:'Phone apps worth installing.'},
+  {id:'search', name:'Search tricks', short:'Search tricks', blurb:'Ways to make plain Google Search behave.'}
+];
+
+const TOOLS = [
+  {c:'research', n:'Google Patents', k:'Web', u:'https://patents.google.com', d:"Full-text search of patents worldwide, machine-translated, with a prior-art finder. A company's recent filings show what it is really building, which makes this good interview prep."},
+  {c:'research', n:'Scholar alerts and “Cited by”', k:'Web', u:'https://scholar.google.com', d:'Follow a paper forward in time through everything that cites it, and get an email when an author or a saved search has new work.'},
+  {c:'research', n:'Dataset Search', k:'Web', u:'https://datasetsearch.research.google.com', d:'A search engine just for public datasets, from government statistics to research data.'},
+  {c:'research', n:'Books Ngram Viewer', k:'Web', u:'https://books.google.com/ngrams', d:'Charts how often a word or phrase appeared in printed books over centuries. It has a German corpus too.'},
+  {c:'research', n:'Fact Check Explorer', k:'Web', u:'https://toolbox.google.com/factcheck/explorer', d:'Searches published fact-checks and lets you check where an image came from.'},
+  {c:'research', n:'Arts & Culture', k:'Web', u:'https://artsandculture.google.com', d:'Very high-resolution scans of famous artworks, plus Street View inside museums.'},
+
+  {c:'maps', n:'Google Earth Pro', k:'Desktop app', u:'https://www.google.com/earth/about/versions/', d:'Free desktop app with a slider for older satellite images, measuring tools, KML import and flyover video export.'},
+  {c:'maps', n:'Earth Timelapse', k:'Web', u:'https://earthengine.google.com/timelapse/', d:'About 40 years of satellite imagery you can scrub through. Good for watching coastlines, mines and cities change.'},
+  {c:'maps', n:'Google Flights Explore', k:'Web', u:'https://www.google.com/travel/explore', d:'A map of the cheapest places to fly from your airport on flexible dates, plus a date grid and price alerts.'},
+
+  {c:'workspace', n:'Drive OCR', k:'Built-in feature', u:'https://drive.google.com', d:'Drive searches the text inside scanned PDFs and images. Open with → Google Docs turns a scanned PDF into editable text, which helps with a large PDF library.'},
+  {c:'workspace', n:'Apps Script', k:'Web', u:'https://script.google.com', d:'Free JavaScript automation across Gmail, Sheets, Drive and Calendar, with scheduled triggers. It is basically free cron jobs.'},
+  {c:'workspace', n:'Sheets web functions', k:'Built-in feature', u:'https://support.google.com/docs/table/25273', l:'Sheets function list', d:'IMPORTXML and IMPORTHTML pull tables straight from web pages. GOOGLETRANSLATE, GOOGLEFINANCE and IMAGE also work right in a cell.', s:'=IMPORTHTML("https://example.com/page", "table", 1)'},
+  {c:'workspace', n:'Gmail plus-addressing', k:'Trick', d:'Mail to name+anything@gmail.com still reaches you, so each shop or newsletter can get its own tag to filter on. Gmail also ignores dots in the name part of the address.', s:'yourname+shopname@gmail.com'},
+  {c:'workspace', n:'Takeout', k:'Web', u:'https://takeout.google.com', d:'Exports all your Google data and can repeat the export every 2 months.'},
+  {c:'workspace', n:'Inactive Account Manager', k:'Account setting', u:'https://myaccount.google.com/inactive', d:'A dead man’s switch for your account. If it goes unused for a set time, your data goes to someone you choose.'},
+
+  {c:'tools', n:'Chrome Remote Desktop', k:'Web', u:'https://remotedesktop.google.com', d:'Free remote access to your PC from any browser or phone, without TeamViewer’s licence nagging.'},
+  {c:'tools', n:'Quick Share for Windows', k:'Windows app', u:'https://www.android.com/better-together/quick-share-app/', d:'AirDrop-style file transfer between an Android phone and a Windows PC.'},
+  {c:'tools', n:'Squoosh', k:'Web', u:'https://squoosh.app', d:'Compress images in the browser and compare formats side by side before you save.'},
+  {c:'tools', n:'Teachable Machine', k:'Web', u:'https://teachablemachine.withgoogle.com', d:'Train an image, sound or pose classifier in the browser, no code needed.'},
+  {c:'tools', n:'AI Studio', k:'Web', u:'https://aistudio.google.com', d:'A more direct playground for Gemini models, with a free API tier and more control than the Gemini app.'},
+
+  {c:'mobile', n:'Live Transcribe', k:'Android', u:'https://play.google.com/store/apps/details?id=com.google.audio.hearing.visualization.accessibility.scribe', l:'Google Play', d:'Live captions for the conversation around you. It also works offline.'},
+  {c:'mobile', n:'Translate conversation mode', k:'Android & iOS', u:'https://translate.google.com', d:'Two-way spoken translation in real time. Download offline language packs before you travel.'},
+  {c:'mobile', n:'Snapseed', k:'Android & iOS', u:'https://play.google.com/store/apps/details?id=com.niksoftware.snapseed', l:'Google Play', d:'Still one of the best free photo editors on a phone.'},
+
+  {c:'search', n:'The Web filter', k:'Trick', u:'https://www.google.com/search?q=squoosh&udm=14', l:'Example search with udm=14', d:'The Web tab, or &udm=14 added to a search URL, removes AI Overviews and other clutter and leaves plain links.', s:'&udm=14'},
+  {c:'search', n:'Date and file-type operators', k:'Trick', d:'before: and after: limit results by date, and filetype:pdf returns only PDFs. They combine with any query.', s:'filetype:pdf before:2020-01-01'},
+  {c:'search', n:'Verbatim mode', k:'Trick', d:'Tools → All results → Verbatim stops Google from rewriting your query or swapping in synonyms.'}
+];
+
+const qEl = document.getElementById('q');
+const chipsEl = document.getElementById('chips');
+const listEl = document.getElementById('list');
+const metaEl = document.getElementById('meta');
+const emptyEl = document.getElementById('empty');
+let query = '';
+let cat = 'all';
+
+const esc = s => String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const catName = id => (CATS.find(c => c.id === id) || {}).name || '';
+const label = u => u.replace(/^https?:\/\/(www\.)?/, '').replace(/\/$/, '');
+const terms = () => query.toLowerCase().split(/\s+/).filter(Boolean);
+
+function matches(t, ts) {
+  if (!ts.length) return true;
+  const hay = [t.n, t.d, t.k, t.s || '', t.u || '', catName(t.c)].join(' ').toLowerCase();
+  return ts.every(x => hay.includes(x));
+}
+
+function hl(text, ts) {
+  if (!ts.length) return esc(text);
+  const re = new RegExp('(' + ts.map(x => x.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')).join('|') + ')', 'gi');
+  return text.split(re).map((part, i) => i % 2 ? '<mark>' + esc(part) + '</mark>' : esc(part)).join('');
+}
+
+function row(t, ts) {
+  const snip = t.s ? `<div class="snippet"><code>${esc(t.s)}</code><button type="button" data-copy="${esc(t.s)}" aria-label="Copy ${esc(t.s)}">Copy</button></div>` : '';
+  const link = t.u ? `<a class="go" href="${esc(t.u)}" target="_blank" rel="noopener">${esc(t.l || label(t.u))} <span aria-hidden="true">↗</span></a>` : '';
+  return `<article class="tool">
+    <div class="tool-head"><h3>${hl(t.n, ts)}</h3><span class="kind">${esc(t.k)}</span></div>
+    <div class="tool-body"><p>${hl(t.d, ts)}</p>${snip}${link}</div>
+  </article>`;
+}
+
+chipsEl.innerHTML = [{id:'all', short:'All'}, ...CATS].map(c =>
+  `<button type="button" class="chip" data-cat="${c.id}" aria-pressed="false">${esc(c.short)}<span class="n"></span></button>`
+).join('');
+
+function render() {
+  const t0 = performance.now();
+  const ts = terms();
+  const hits = TOOLS.filter(t => matches(t, ts));
+  const shown = hits.filter(t => cat === 'all' || t.c === cat);
+
+  const counts = {all: hits.length};
+  hits.forEach(t => { counts[t.c] = (counts[t.c] || 0) + 1; });
+  chipsEl.querySelectorAll('.chip').forEach(b => {
+    const n = counts[b.dataset.cat] || 0;
+    b.querySelector('.n').textContent = n;
+    b.classList.toggle('zero', n === 0);
+    b.setAttribute('aria-pressed', String(b.dataset.cat === cat));
+  });
+
+  listEl.innerHTML = CATS.map(c => {
+    const rows = shown.filter(t => t.c === c.id);
+    if (!rows.length) return '';
+    return `<section class="group" id="${c.id}" aria-labelledby="h-${c.id}">
+      <header class="rail">
+        <h2 id="h-${c.id}">${esc(c.name)}</h2>
+        <p class="count">${rows.length} ${rows.length === 1 ? 'tool' : 'tools'}</p>
+        <p class="blurb">${esc(c.blurb)}</p>
+      </header>
+      <div class="rows">${rows.map(t => row(t, ts)).join('')}</div>
+    </section>`;
+  }).join('');
+
+  emptyEl.hidden = shown.length > 0;
+  document.getElementById('emptyq').textContent = query ? '“' + query + '”' + (cat !== 'all' ? ' in ' + catName(cat) : '') : 'in ' + catName(cat);
+
+  const secs = ((performance.now() - t0) / 1000).toFixed(2);
+  metaEl.textContent = `${shown.length} ${shown.length === 1 ? 'result' : 'results'} (${secs} seconds)`;
+}
+
+qEl.addEventListener('input', () => { query = qEl.value.trim(); render(); });
+qEl.addEventListener('keydown', e => {
+  if (e.key === 'Escape' && qEl.value) { qEl.value = ''; query = ''; render(); }
+});
+
+chipsEl.addEventListener('click', e => {
+  const b = e.target.closest('.chip');
+  if (!b) return;
+  cat = b.dataset.cat;
+  render();
+});
+
+document.getElementById('reset').addEventListener('click', () => {
+  qEl.value = ''; query = ''; cat = 'all';
+  render();
+  qEl.focus();
+});
+
+document.addEventListener('keydown', e => {
+  if (e.key === '/' && !e.target.closest('input, textarea, [contenteditable]')) {
+    e.preventDefault();
+    qEl.focus();
+  }
+});
+
+document.addEventListener('click', e => {
+  const b = e.target.closest('[data-copy]');
+  if (!b) return;
+  const done = msg => { b.textContent = msg; setTimeout(() => { b.textContent = 'Copy'; }, 1600); };
+  const fallback = () => {
+    const code = b.parentElement.querySelector('code');
+    const r = document.createRange();
+    r.selectNodeContents(code);
+    const sel = window.getSelection();
+    sel.removeAllRanges();
+    sel.addRange(r);
+    done('Press Ctrl+C');
+  };
+  try {
+    navigator.clipboard.writeText(b.dataset.copy).then(() => done('Copied'), fallback);
+  } catch (_) {
+    fallback();
+  }
+});
+
+render();
+</script>
+
+</body>
+</html>
